@@ -1,0 +1,282 @@
+{% extends "fp17_form/base.html" %}
+
+{% block form_content %}
+
+<h2 class="mt-4">
+  Part 4
+  &mdash; Excemptions and Remissions
+</h2>
+
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.patient_under_18.id_for_label }}"
+          type="checkbox"
+          name="{{ form.patient_under_18.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.patient_under_18 %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.patient_under_18.value %}checked{% endif %}
+        >
+        Patient under 18
+        {% for x in form.errors.patient_under_18 %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.full_remission_hc2_cert.id_for_label }}"
+          type="checkbox"
+          name="{{ form.full_remission_hc2_cert.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.full_remission_hc2_cert %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.full_remission_hc2_cert.value %}checked{% endif %}
+        >
+        Full remission - HC2 cert.
+        {% for x in form.errors.full_remission_hc2_cert %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.partial_remission_hc3_cert.id_for_label }}"
+          type="checkbox"
+          name="{{ form.partial_remission_hc3_cert.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.partial_remission_hc3_cert %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.partial_remission_hc3_cert.value %}checked{% endif %}
+        >
+        Partial remission - HC3 cert.
+        {% for x in form.errors.partial_remission_hc3_cert %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.expectant_mother.id_for_label }}"
+          type="checkbox"
+          name="{{ form.expectant_mother.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.expectant_mother %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.expectant_mother.value %}checked{% endif %}
+        >
+        Expectant mother
+        {% for x in form.errors.expectant_mother %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.nursing_mother.id_for_label }}"
+          type="checkbox"
+          name="{{ form.nursing_mother.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.nursing_mother %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.nursing_mother.value %}checked{% endif %}
+        >
+        Nursing mother
+        {% for x in form.errors.nursing_mother %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.aged_18_in_full_time_education.id_for_label }}"
+          type="checkbox"
+          name="{{ form.aged_18_in_full_time_education.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.aged_18_in_full_time_education %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.aged_18_in_full_time_education.value %}checked{% endif %}
+        >
+        Aged 18 in full-time education
+        {% for x in form.errors.aged_18_in_full_time_education %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.income_support.id_for_label }}"
+          type="checkbox"
+          name="{{ form.income_support.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.income_support %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.income_support.value %}checked{% endif %}
+        >
+        Income support
+        {% for x in form.errors.income_support %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.nhs_tax_credit_exemption.id_for_label }}"
+          type="checkbox"
+          name="{{ form.nhs_tax_credit_exemption.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.nhs_tax_credit_exemption %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.nhs_tax_credit_exemption.value %}checked{% endif %}
+        >
+        NHS Tax Credit Exemption
+        {% for x in form.errors.nhs_tax_credit_exemption %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.income_based_jobseekers_allowance.id_for_label }}"
+          type="checkbox"
+          name="{{ form.income_based_jobseekers_allowance.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.income_based_jobseekers_allowance %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.income_based_jobseekers_allowance.value %}checked{% endif %}
+        >
+        Income based Jobseeker's allowance
+        {% for x in form.errors.income_based_jobseekers_allowance %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.pension_credit_guarantee_credit.id_for_label }}"
+          type="checkbox"
+          name="{{ form.pension_credit_guarantee_credit.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.pension_credit_guarantee_credit %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.pension_credit_guarantee_credit.value %}checked{% endif %}
+        >
+        Pension credit guarantee credit
+        {% for x in form.errors.pension_credit_guarantee_credit %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.prisoner.id_for_label }}"
+          type="checkbox"
+          name="{{ form.prisoner.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.prisoner %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.prisoner.value %}checked{% endif %}
+        >
+        Prisoner
+        {% for x in form.errors.prisoner %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.income_related_employment_and_support_allowance.id_for_label }}"
+          type="checkbox"
+          name="{{ form.income_related_employment_and_support_allowance.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.income_related_employment_and_support_allowance %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.income_related_employment_and_support_allowance.value %}checked{% endif %}
+        >
+        Income-related employment and support allowance
+        {% for x in form.errors.income_related_employment_and_support_allowance %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.universal_credit.id_for_label }}"
+          type="checkbox"
+          name="{{ form.universal_credit.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.universal_credit %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.universal_credit.value %}checked{% endif %}
+        >
+        Universal credit
+        {% for x in form.errors.universal_credit %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.evidence_of_exception_or_remission_seen.id_for_label }}"
+          type="checkbox"
+          name="{{ form.evidence_of_exception_or_remission_seen.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.evidence_of_exception_or_remission_seen %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.evidence_of_exception_or_remission_seen.value %}checked{% endif %}
+        >
+        Evidence of exception or remission seen
+        {% for x in form.errors.evidence_of_exception_or_remission_seen %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
+      <label class="col-form-label" for="{{ form.patient_charge_collected.id_for_label }}">
+        Patient charge collected
+      </label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">&pound;</div>
+        </div>
+        <input
+          id="{{ form.patient_charge_collected.id_for_label }}"
+          type="text"
+          class="form-control {% if form.errors %}{% if form.errors.patient_charge_collected %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          name="{{ form.patient_charge_collected.html_name }}"
+          value="{{ form.patient_charge_collected.value|default:"" }}"
+          maxlength="{{ form.patient_charge_collected.field.max_length|default:"" }}"
+          placeholder=""
+          {% if form.patient_charge_collected.field.required %}required{% endif %}
+        >
+      </div>
+      {% for x in form.errors.patient_charge_collected %}
+        <div class="invalid-feedback">{{ x }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,501 @@
+{% extends "fp17_form/base.html" %}
+
+{% block form_content %}
+
+<h2 class="mt-4">
+  Part 5a
+  &mdash; Clinical Data Set
+</h2>
+
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.scale_and_polish.id_for_label }}"
+          type="checkbox"
+          name="{{ form.scale_and_polish.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.scale_and_polish %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.scale_and_polish.value %}checked{% endif %}
+        >
+        Scale &amp; polish
+        {% for x in form.errors.scale_and_polish %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.fluoride_varnish.id_for_label }}"
+          type="checkbox"
+          name="{{ form.fluoride_varnish.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.fluoride_varnish %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.fluoride_varnish.value %}checked{% endif %}
+        >
+        Fluoride varnish
+        {% for x in form.errors.fluoride_varnish %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.fissure_sealants.id_for_label }}">
+      Fissure sealants
+    </label>
+    <input
+      id="{{ form.fissure_sealants.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.fissure_sealants %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.fissure_sealants.html_name }}"
+      value="{{ form.fissure_sealants.value|default:"" }}"
+      maxlength="{{ form.fissure_sealants.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.fissure_sealants.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.fissure_sealants %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.radiographs_taken.id_for_label }}">
+      Radiograph(s) taken
+    </label>
+    <input
+      id="{{ form.radiographs_taken.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.radiographs_taken %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.radiographs_taken.html_name }}"
+      value="{{ form.radiographs_taken.value|default:"" }}"
+      maxlength="{{ form.radiographs_taken.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.radiographs_taken.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.radiographs_taken %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.endodontic_treatment.id_for_label }}"
+          type="checkbox"
+          name="{{ form.endodontic_treatment.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.endodontic_treatment %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.endodontic_treatment.value %}checked{% endif %}
+        >
+        Endodontic treatment
+        {% for x in form.errors.endodontic_treatment %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.permanent_fillings_and_sealant_restorations.id_for_label }}">
+      Permanent fillings &amp; sealant restorations
+    </label>
+    <input
+      id="{{ form.permanent_fillings_and_sealant_restorations.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.permanent_fillings_and_sealant_restorations %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.permanent_fillings_and_sealant_restorations.html_name }}"
+      value="{{ form.permanent_fillings_and_sealant_restorations.value|default:"" }}"
+      maxlength="{{ form.permanent_fillings_and_sealant_restorations.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.permanent_fillings_and_sealant_restorations.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.permanent_fillings_and_sealant_restorations %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.extractions.id_for_label }}">
+      Extractions
+    </label>
+    <input
+      id="{{ form.extractions.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.extractions %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.extractions.html_name }}"
+      value="{{ form.extractions.value|default:"" }}"
+      maxlength="{{ form.extractions.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.extractions.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.extractions %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.crowns_provided.id_for_label }}">
+      Crowns provided
+    </label>
+    <input
+      id="{{ form.crowns_provided.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.crowns_provided %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.crowns_provided.html_name }}"
+      value="{{ form.crowns_provided.value|default:"" }}"
+      maxlength="{{ form.crowns_provided.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.crowns_provided.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.crowns_provided %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.upper_denture_acrylic.id_for_label }}">
+      Upper denture - Acrylic
+    </label>
+    <input
+      id="{{ form.upper_denture_acrylic.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.upper_denture_acrylic %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.upper_denture_acrylic.html_name }}"
+      value="{{ form.upper_denture_acrylic.value|default:"" }}"
+      maxlength="{{ form.upper_denture_acrylic.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.upper_denture_acrylic.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.upper_denture_acrylic %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.lower_denture_acrylic.id_for_label }}">
+      Lower denture - Acrylic
+    </label>
+    <input
+      id="{{ form.lower_denture_acrylic.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.lower_denture_acrylic %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.lower_denture_acrylic.html_name }}"
+      value="{{ form.lower_denture_acrylic.value|default:"" }}"
+      maxlength="{{ form.lower_denture_acrylic.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.lower_denture_acrylic.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.lower_denture_acrylic %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.upper_denture_metal.id_for_label }}">
+      Upper denture - Metal
+    </label>
+    <input
+      id="{{ form.upper_denture_metal.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.upper_denture_metal %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.upper_denture_metal.html_name }}"
+      value="{{ form.upper_denture_metal.value|default:"" }}"
+      maxlength="{{ form.upper_denture_metal.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.upper_denture_metal.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.upper_denture_metal %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.lower_denture_metal.id_for_label }}">
+      Lower denture - Metal
+    </label>
+    <input
+      id="{{ form.lower_denture_metal.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.lower_denture_metal %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.lower_denture_metal.html_name }}"
+      value="{{ form.lower_denture_metal.value|default:"" }}"
+      maxlength="{{ form.lower_denture_metal.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.lower_denture_metal.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.lower_denture_metal %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.veneers_applied.id_for_label }}">
+      Veneers applied
+    </label>
+    <input
+      id="{{ form.veneers_applied.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.veneers_applied %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.veneers_applied.html_name }}"
+      value="{{ form.veneers_applied.value|default:"" }}"
+      maxlength="{{ form.veneers_applied.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.veneers_applied.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.veneers_applied %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.inlays.id_for_label }}">
+      Inlay(s)
+    </label>
+    <input
+      id="{{ form.inlays.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.inlays %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.inlays.html_name }}"
+      value="{{ form.inlays.value|default:"" }}"
+      maxlength="{{ form.inlays.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.inlays.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.inlays %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.bridges_fitted.id_for_label }}">
+      Bridge(s) fitted
+    </label>
+    <input
+      id="{{ form.bridges_fitted.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.bridges_fitted %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.bridges_fitted.html_name }}"
+      value="{{ form.bridges_fitted.value|default:"" }}"
+      maxlength="{{ form.bridges_fitted.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.bridges_fitted.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.bridges_fitted %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.referral_for_advanced_mandatory_services_band.id_for_label }}">
+      Referral for advanced mandatory services (AMs) (band)
+    </label>
+    <input
+      id="{{ form.referral_for_advanced_mandatory_services_band.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.referral_for_advanced_mandatory_services_band %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.referral_for_advanced_mandatory_services_band.html_name }}"
+      value="{{ form.referral_for_advanced_mandatory_services_band.value|default:"" }}"
+      maxlength="{{ form.referral_for_advanced_mandatory_services_band.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.referral_for_advanced_mandatory_services_band.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.referral_for_advanced_mandatory_services_band %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.examination.id_for_label }}"
+          type="checkbox"
+          name="{{ form.examination.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.examination %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.examination.value %}checked{% endif %}
+        >
+        Examination
+        {% for x in form.errors.examination %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.antibiotic_items_prescribed.id_for_label }}">
+      Antibiotic items prescribed
+    </label>
+    <input
+      id="{{ form.antibiotic_items_prescribed.id_for_label }}"
+      type="number"
+      class="form-control {% if form.errors %}{% if form.errors.antibiotic_items_prescribed %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.antibiotic_items_prescribed.html_name }}"
+      value="{{ form.antibiotic_items_prescribed.value|default:"" }}"
+      maxlength="{{ form.antibiotic_items_prescribed.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.antibiotic_items_prescribed.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.antibiotic_items_prescribed %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.other_treatment.id_for_label }}"
+          type="checkbox"
+          name="{{ form.other_treatment.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.other_treatment %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.other_treatment.value %}checked{% endif %}
+        >
+        Other treatment
+        {% for x in form.errors.other_treatment %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.best_practice_prevention_according_to_delivering_better_oral_health_offered.id_for_label }}"
+          type="checkbox"
+          name="{{ form.best_practice_prevention_according_to_delivering_better_oral_health_offered.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.best_practice_prevention_according_to_delivering_better_oral_health_offered %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.best_practice_prevention_according_to_delivering_better_oral_health_offered.value %}checked{% endif %}
+        >
+        Best practice prevention according to Delivering Better Oral Health offered
+        {% for x in form.errors.best_practice_prevention_according_to_delivering_better_oral_health_offered %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-2">
+    <div class="form-text text-right">
+      Decayed teeth:
+    </div>
+  </div>
+  <div class="form-group col-md-1">
+    <label class="col-form-label" for="{{ form.decayed_teeth_permanent.id_for_label }}">
+      Permanent
+    </label>
+    <input
+      id="{{ form.decayed_teeth_permanent.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.decayed_teeth_permanent %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.decayed_teeth_permanent.html_name }}"
+      value="{{ form.decayed_teeth_permanent.value|default:"" }}"
+      maxlength="{{ form.decayed_teeth_permanent.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.decayed_teeth_permanent.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.decayed_teeth_permanent %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-1">
+    <label class="col-form-label" for="{{ form.decayed_teeth_deciduous.id_for_label }}">
+      Deciduous
+    </label>
+    <input
+      id="{{ form.decayed_teeth_deciduous.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.decayed_teeth_deciduous %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.decayed_teeth_deciduous.html_name }}"
+      value="{{ form.decayed_teeth_deciduous.value|default:"" }}"
+      maxlength="{{ form.decayed_teeth_deciduous.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.decayed_teeth_deciduous.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.decayed_teeth_deciduous %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-2">
+    <div class="form-text text-right">
+      Missing teeth:
+    </div>
+  </div>
+  <div class="form-group col-md-1">
+    <label class="col-form-label" for="{{ form.missing_teeth_permanent.id_for_label }}">
+      Permanent
+    </label>
+    <input
+      id="{{ form.missing_teeth_permanent.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.missing_teeth_permanent %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.missing_teeth_permanent.html_name }}"
+      value="{{ form.missing_teeth_permanent.value|default:"" }}"
+      maxlength="{{ form.missing_teeth_permanent.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.missing_teeth_permanent.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.missing_teeth_permanent %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-1">
+    <label class="col-form-label" for="{{ form.missing_teeth_deciduous.id_for_label }}">
+      Deciduous
+    </label>
+    <input
+      id="{{ form.missing_teeth_deciduous.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.missing_teeth_deciduous %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.missing_teeth_deciduous.html_name }}"
+      value="{{ form.missing_teeth_deciduous.value|default:"" }}"
+      maxlength="{{ form.missing_teeth_deciduous.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.missing_teeth_deciduous.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.missing_teeth_deciduous %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-2">
+    <div class="form-text text-right">
+      Filled teeth:
+    </div>
+  </div>
+  <div class="form-group col-md-1">
+    <label class="col-form-label" for="{{ form.filled_teeth_permanent.id_for_label }}">
+      Permanent
+    </label>
+    <input
+      id="{{ form.filled_teeth_permanent.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.filled_teeth_permanent %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.filled_teeth_permanent.html_name }}"
+      value="{{ form.filled_teeth_permanent.value|default:"" }}"
+      maxlength="{{ form.filled_teeth_permanent.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.filled_teeth_permanent.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.filled_teeth_permanent %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-1">
+    <label class="col-form-label" for="{{ form.filled_teeth_deciduous.id_for_label }}">
+      Deciduous
+    </label>
+    <input
+      id="{{ form.filled_teeth_deciduous.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.filled_teeth_deciduous %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.filled_teeth_deciduous.html_name }}"
+      value="{{ form.filled_teeth_deciduous.value|default:"" }}"
+      maxlength="{{ form.filled_teeth_deciduous.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.filled_teeth_deciduous.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.filled_teeth_deciduous %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

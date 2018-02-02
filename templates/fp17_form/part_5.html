@@ -1,0 +1,188 @@
+{% extends "fp17_form/base.html" %}
+
+{% block form_content %}
+
+
+<h2 class="mt-4">
+  Part 5
+  &mdash; Treatment Category
+</h2>
+
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.treatment_category_band_1.id_for_label }}"
+          type="checkbox"
+          name="{{ form.treatment_category_band_1.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.treatment_category_band_1 %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.treatment_category_band_1.value %}checked{% endif %}
+        >
+        Band 1
+        {% for x in form.errors.treatment_category_band_1 %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.treatment_category_band_2.id_for_label }}"
+          type="checkbox"
+          name="{{ form.treatment_category_band_2.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.treatment_category_band_2 %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.treatment_category_band_2.value %}checked{% endif %}
+        >
+        Band 2
+        {% for x in form.errors.treatment_category_band_2 %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.treatment_category_band_3.id_for_label }}"
+          type="checkbox"
+          name="{{ form.treatment_category_band_3.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.treatment_category_band_3 %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.treatment_category_band_3.value %}checked{% endif %}
+        >
+        Band 3
+        {% for x in form.errors.treatment_category_band_3 %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.urgent_treatment.id_for_label }}"
+          type="checkbox"
+          name="{{ form.urgent_treatment.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.urgent_treatment %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.urgent_treatment.value %}checked{% endif %}
+        >
+        Urgent treatment
+        {% for x in form.errors.urgent_treatment %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.regulation_11_replacement_appliance.id_for_label }}"
+          type="checkbox"
+          name="{{ form.regulation_11_replacement_appliance.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.regulation_11_replacement_appliance %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.regulation_11_replacement_appliance.value %}checked{% endif %}
+        >
+        Regulation 11 replacement appliance
+        {% for x in form.errors.regulation_11_replacement_appliance %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.prescription_only.id_for_label }}"
+          type="checkbox"
+          name="{{ form.prescription_only.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.prescription_only %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.prescription_only.value %}checked{% endif %}
+        >
+        Prescription only
+        {% for x in form.errors.prescription_only %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.denture_repairs.id_for_label }}"
+          type="checkbox"
+          name="{{ form.denture_repairs.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.denture_repairs %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.denture_repairs.value %}checked{% endif %}
+        >
+        Denture repairs
+        {% for x in form.errors.denture_repairs %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.bridge_repairs.id_for_label }}"
+          type="checkbox"
+          name="{{ form.bridge_repairs.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.bridge_repairs %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.bridge_repairs.value %}checked{% endif %}
+        >
+        Bridge repairs
+        {% for x in form.errors.bridge_repairs %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-3 offset-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.arrest_of_bleeding.id_for_label }}"
+          type="checkbox"
+          name="{{ form.arrest_of_bleeding.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.arrest_of_bleeding %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.arrest_of_bleeding.value %}checked{% endif %}
+        >
+        Arrest of bleeding
+        {% for x in form.errors.arrest_of_bleeding %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.removal_of_sutures.id_for_label }}"
+          type="checkbox"
+          name="{{ form.removal_of_sutures.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.removal_of_sutures %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.removal_of_sutures.value %}checked{% endif %}
+        >
+        Removal of sutures
+        {% for x in form.errors.removal_of_sutures %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

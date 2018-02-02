@@ -1,0 +1,203 @@
+{% extends "fp17_form/base.html" %}
+
+{% block form_content %}
+
+<h2 class="mt-2">
+  Part 2
+  &mdash; Patient information
+</h2>
+
+<div class="form-row">
+  <div class="form-group col-md-2">
+    <label class="col-form-label" for="{{ form.title.id_for_label }}">
+      Title
+    </label>
+    <input
+      id="{{ form.title.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.title %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.title.html_name }}"
+      value="{{ form.title.value|default:"" }}"
+      maxlength="{{ form.title.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.title.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.title %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-4">
+    <label class="col-form-label" for="{{ form.forenames.id_for_label }}">
+      Forenames
+    </label>
+    <input
+      id="{{ form.forenames.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.forenames %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.forenames.html_name }}"
+      value="{{ form.forenames.value|default:"" }}"
+      maxlength="{{ form.forenames.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.forenames.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.forenames %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-6">
+    <label class="col-form-label" for="{{ form.surname.id_for_label }}">
+      Surname
+    </label>
+    <input
+      id="{{ form.surname.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.surname %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.surname.html_name }}"
+      value="{{ form.surname.value|default:"" }}"
+      maxlength="{{ form.surname.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.surname.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.surname %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-6">
+    {% for val, display in form.gender.field.choices %}
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="{{ form.gender.html_name }}"
+          value="{{ val }}"
+          {% if form.gender.value|stringformat:"s" == val|stringformat:"s" %}checked{% endif %}
+        >
+        {{ display }}
+      </label>
+    </div>
+    {% endfor %}
+    {% for x in form.errors.gender %}
+      <div class="invalid-feedback d-block">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-6">
+    <label class="col-form-label" for="{{ form.date_of_birth.id_for_label }}">
+      Date of birth
+    </label>
+    <input
+      id="{{ form.date_of_birth.id_for_label }}"
+      type="date"
+      class="form-control {% if form.errors %}{% if form.errors.date_of_birth %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.date_of_birth.html_name }}"
+      value="{{ form.date_of_birth.value|default:"" }}"
+      maxlength="{{ form.date_of_birth.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.date_of_birth.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.date_of_birth %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label class="col-form-label" for="{{ form.house_number_or_name.id_for_label }}">
+      House number or name
+    </label>
+    <input
+      id="{{ form.house_number_or_name.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.house_number_or_name %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.house_number_or_name.html_name }}"
+      value="{{ form.house_number_or_name.value|default:"" }}"
+      maxlength="{{ form.house_number_or_name.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.house_number_or_name.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.house_number_or_name %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-6">
+    <label class="col-form-label" for="{{ form.street.id_for_label }}">
+      Street
+    </label>
+    <input
+      id="{{ form.street.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.street %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.street.html_name }}"
+      value="{{ form.street.value|default:"" }}"
+      maxlength="{{ form.street.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.street.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.street %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-5">
+    <label class="col-form-label" for="{{ form.city_or_town.id_for_label }}">
+      City or Town
+    </label>
+    <input
+      id="{{ form.city_or_town.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.city_or_town %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.city_or_town.html_name }}"
+      value="{{ form.city_or_town.value|default:"" }}"
+      maxlength="{{ form.city_or_town.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.city_or_town.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.city_or_town %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-4">
+    <label class="col-form-label" for="{{ form.county.id_for_label }}">
+      County
+    </label>
+    <input
+      id="{{ form.county.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.county %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.county.html_name }}"
+      value="{{ form.county.value|default:"" }}"
+      maxlength="{{ form.county.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.county.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.county %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-3">
+    <label class="col-form-label" for="{{ form.postcode.id_for_label }}">
+      Postcode
+    </label>
+    <input
+      id="{{ form.postcode.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.postcode %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.postcode.html_name }}"
+      value="{{ form.postcode.value|default:"" }}"
+      maxlength="{{ form.postcode.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.postcode.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.postcode %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
