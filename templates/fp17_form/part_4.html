@@ -266,7 +266,7 @@
           type="text"
           class="form-control {% if form.errors %}{% if form.errors.patient_charge_collected %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
           name="{{ form.patient_charge_collected.html_name }}"
-          value="{{ form.patient_charge_collected.value|default:"" }}"
+          value="{{ form.patient_charge_collected.value|default:"0.00" }}"
           maxlength="{{ form.patient_charge_collected.field.max_length|default:"" }}"
           placeholder=""
           {% if form.patient_charge_collected.field.required %}required{% endif %}
