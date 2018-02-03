@@ -108,16 +108,27 @@ class PartFiveA(forms.Form):
     filled_teeth_deciduous = forms.IntegerField()
 
 class PartSix(forms.Form):
-    pass
+    treatment_on_referral = forms.BooleanField(required=False)
+    free_repair_or_replacement = forms.BooleanField(required=False)
+    further_treatment_within_2_months = forms.BooleanField(required=False)
+    domicillary_services = forms.BooleanField(required=False)
+    sedation_services = forms.BooleanField(required=False)
 
 
 class PartSeven(forms.Form):
-    pass
+    number_of_months = forms.IntegerField()
 
 
 class PartEight(forms.Form):
-    pass
+    field_1 = forms.CharField()
+    field_2 = forms.CharField()
+    field_3 = forms.CharField()
+    field_4 = forms.DecimalField(decimal_places=2)
 
 
 class PartNine(forms.Form):
-    pass
+    necessary_care_provided = forms.BooleanField(required=False)
+    necessary_care_carried_out = forms.BooleanField(required=False)
+
+    signature = forms.CharField()
+    signature_date = forms.DateField()

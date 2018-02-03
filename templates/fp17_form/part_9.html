@@ -2,34 +2,85 @@
 
 {% block form_content %}
 
-        <h2 class="mt-4">
-          Part 9
-          &mdash; Declaration
-        </h2>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">All the necessary care and treatment that the patient is willing to undergo will be provided.</label>
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">All the currently necessary care and treatment that the patient is willing to undergo has been carried out</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label>Signature:</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="form-group col-md-6">
-            <label>Date:</label>
-            <input type="date" class="form-control">
-          </div>
-        </div>
+<h2 class="mt-4">
+  Part 9
+  &mdash; Declaration
+</h2>
+
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.necessary_care_provided.id_for_label }}"
+          type="checkbox"
+          name="{{ form.necessary_care_provided.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.necessary_care_provided %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.necessary_care_provided.value %}checked{% endif %}
+        >
+        All the necessary care and treatment that the patient is willing to undergo will be provided.
+        {% for x in form.errors.necessary_care_provided %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.necessary_care_carried_out.id_for_label }}"
+          type="checkbox"
+          name="{{ form.necessary_care_carried_out.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.necessary_care_carried_out %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.necessary_care_carried_out.value %}checked{% endif %}
+        >
+        All the currently necessary care and treatment that the patient is willing to undergo has been carried out.
+        {% for x in form.errors.necessary_care_carried_out %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label class="col-form-label" for="{{ form.signature.id_for_label }}">
+      Signature
+    </label>
+    <input
+      id="{{ form.signature.id_for_label }}"
+      type="text"
+      class="form-control {% if form.errors %}{% if form.errors.signature %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.signature.html_name }}"
+      value="{{ form.signature.value|default:"" }}"
+      maxlength="{{ form.signature.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.signature.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.signature %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+  <div class="form-group col-md-6">
+    <label class="col-form-label" for="{{ form.signature_date.id_for_label }}">
+      Date
+    </label>
+    <input
+      id="{{ form.signature_date.id_for_label }}"
+      type="date"
+      class="form-control {% if form.errors %}{% if form.errors.signature_date %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+      name="{{ form.signature_date.html_name }}"
+      value="{{ form.signature_date.value|default:"" }}"
+      maxlength="{{ form.signature_date.field.max_length|default:"" }}"
+      placeholder=""
+      {% if form.signature_date.field.required %}required{% endif %}
+    >
+    {% for x in form.errors.signature_date %}
+      <div class="invalid-feedback">{{ x }}</div>
+    {% endfor %}
+  </div>
+</div>
 
 
 {% endblock %}

@@ -2,42 +2,97 @@
 
 {% block form_content %}
 
-        <h2 class="mt-4">
-          Part 6
-          &mdash; Other Services
-        </h2>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">Treatment on referral?</label>
-            </div>
-          </div>
-          <div class="form-group col-md-2">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">Free repair / replacement?</label>
-            </div>
-          </div>
-          <div class="form-group col-md-2">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">Further treatment with 2 months</label>
-            </div>
-          </div>
-          <div class="form-group col-md-2">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">Domicillary services</label>
-            </div>
-          </div>
-          <div class="form-group col-md-2">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">Sedation services</label>
-            </div>
-          </div>
-        </div>
+<h2 class="mt-4">
+  Part 6
+  &mdash; Other Services
+</h2>
 
+<div class="form-row">
+  <div class="form-group col-md-2">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.treatment_on_referral.id_for_label }}"
+          type="checkbox"
+          name="{{ form.treatment_on_referral.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.treatment_on_referral %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.treatment_on_referral.value %}checked{% endif %}
+        >
+        Treatment on referral
+        {% for x in form.errors.treatment_on_referral %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.free_repair_or_replacement.id_for_label }}"
+          type="checkbox"
+          name="{{ form.free_repair_or_replacement.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.free_repair_or_replacement %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.free_repair_or_replacement.value %}checked{% endif %}
+        >
+        Free repair / replacement
+        {% for x in form.errors.free_repair_or_replacement %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.further_treatment_within_2_months.id_for_label }}"
+          type="checkbox"
+          name="{{ form.further_treatment_within_2_months.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.further_treatment_within_2_months %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.further_treatment_within_2_months.value %}checked{% endif %}
+        >
+        Further treatment within 2 months?
+        {% for x in form.errors.further_treatment_within_2_months %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.domicillary_services.id_for_label }}"
+          type="checkbox"
+          name="{{ form.domicillary_services.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.domicillary_services %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.domicillary_services.value %}checked{% endif %}
+        >
+        Comicillary services
+        {% for x in form.errors.domicillary_services %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input
+          id="{{ form.sedation_services.id_for_label }}"
+          type="checkbox"
+          name="{{ form.sedation_services.html_name }}"
+          class="form-check-input {% if form.errors %}{% if form.errors.sedation_services %}is-invalid{% else %}{% if not form.non_field_errors %}is-valid{% endif %}{% endif %}{% endif %}"
+          {% if form.sedation_services.value %}checked{% endif %}
+        >
+        Sedation services
+        {% for x in form.errors.sedation_services %}
+          <div class="invalid-feedback">{{ x }}</div>
+        {% endfor %}
+      </label>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
